@@ -5,12 +5,17 @@ public class LevelManager : MonoBehaviour
 {
     public void Arcane()
     {
-        SceneManager.LoadScene("GatesOfHell");
+        SceneManager.LoadScene("ChooseCharacter1");
     }
 
     public void Versus()
     {
-        SceneManager.LoadScene("GatesOfHell");
+        SceneManager.LoadScene("ChooseCharacter2");
+    }
+
+    public void ArenaSelection()
+    {
+        SceneManager.LoadScene("ArenaSelection");
     }
 
 }
