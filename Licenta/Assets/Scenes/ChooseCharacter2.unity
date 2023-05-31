@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 109914385}
   m_Layer: 0
   m_Name: Player1Box
-  m_TagString: Untagged
+  m_TagString: choosep1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,6 +306,7 @@ MonoBehaviour:
   - {fileID: 2093757461}
   - {fileID: 1603414701}
   - {fileID: 1698614681}
+  selectedCharacter: 0
 --- !u!65 &109914386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1392,7 +1393,7 @@ GameObject:
   - component: {fileID: 1123766588}
   m_Layer: 0
   m_Name: Player2Box
-  m_TagString: Untagged
+  m_TagString: choosep2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1511,6 +1512,7 @@ MonoBehaviour:
   - {fileID: 1409103297}
   - {fileID: 1706329457}
   - {fileID: 1919075296}
+  selectedCharacter: 0
 --- !u!1001 &1151783487
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class selectPlayer2 : MonoBehaviour
     public GameObject player2box;
     public GameObject[] optionsDisplay;
     public GameObject[] namesDisplay;
-    private int selectedCharacter;
+    public int selectedCharacter;
 
     void Start()
     {
