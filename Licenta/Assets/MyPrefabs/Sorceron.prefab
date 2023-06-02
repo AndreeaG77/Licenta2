@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -214,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
       propertyPath: m_Name
-      value: Nightshade J Friedrich Variant
+      value: Sorceron
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
       propertyPath: m_Layer
@@ -222,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: player1
       objectReference: {fileID: 0}
     - target: {fileID: 1082271958561512970, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
       propertyPath: m_Layer
@@ -354,9 +354,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8178473518349769260}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7079479734278905767}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
       insertIndex: -1
@@ -367,33 +364,24 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8338879009470691957}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1613707415143653117}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8286525123690845693}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9147808797265683586}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 900166118934739880}
   m_SourcePrefab: {fileID: 100100000, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
 --- !u!1 &6276767341607961566 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a6d15075d74b1204187eb061525dadc6, type: 3}
   m_PrefabInstance: {fileID: 6618857095600930447}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &8178473518349769260
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6276767341607961566}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.3538384, z: 1.1391897}
-  m_Center: {x: -1.0082466e-16, y: 1.1613593, z: 0.06959489}
 --- !u!54 &7079479734278905767
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -420,7 +408,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &8450096558879604804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  jumpSize: 3
+  jumpSize: 4
   scale: 3
 --- !u!114 &3336007549456780804
 MonoBehaviour:
@@ -466,3 +454,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344623d396723f3478b5ae2f845e2b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1613707415143653117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6276767341607961566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8a8c383384b5a41b8aa6a6bf587876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  jumpSize: 4
+  scale: 3
+--- !u!114 &8286525123690845693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6276767341607961566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c26358a3d299b469d500053317e303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punchDamage: 10
+  kickDamage: 20
+  comboDamage: 30
+  guardedPunchDamage: 5
+  guardedKickDamage: 10
+  guardedComboDamage: 15
+--- !u!114 &-9147808797265683586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6276767341607961566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348d78400cd368e4e9fee199c2953efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &900166118934739880
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6276767341607961566}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8007966
+  m_Height: 2.3972993
+  m_Direction: 1
+  m_Center: {x: -0.041732848, y: 1.1398401, z: 0.0630849}

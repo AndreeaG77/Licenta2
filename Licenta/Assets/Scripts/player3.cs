@@ -30,8 +30,8 @@ public class player3 : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             {
                 if(isGrounded && isMoving){
-                    animator.SetBool("isWalkingBackwards", true);
-                    animator.SetBool("isWalking", false);
+                    animator.SetBool("isWalkingBackwards", false);
+                    animator.SetBool("isWalking", true);
                     animator.SetBool("isJumping", false);
                 }
                 direction = 1f;
@@ -40,8 +40,8 @@ public class player3 : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
             {   
                 if(isGrounded && isMoving){
-                    animator.SetBool("isWalking", true);
-                    animator.SetBool("isWalkingBackwards", false);
+                    animator.SetBool("isWalking", false);
+                    animator.SetBool("isWalkingBackwards", true);
                     animator.SetBool("isJumping", false);
                 }
                 direction = -1f;
@@ -111,11 +111,12 @@ public class player3 : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("spell") || collision.gameObject.CompareTag("spell2"))
             isGrounded = true;
-        if (collision.gameObject.CompareTag("spell")){
+        /*if (collision.gameObject.CompareTag("spell") || collision.gameObject.CompareTag("spell2"))
+        {
             Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
-        }
+        }*/
 
        /* if (collision.gameObject.CompareTag("Target")){
             if(Input.GetKey(KeyCode.Y)){

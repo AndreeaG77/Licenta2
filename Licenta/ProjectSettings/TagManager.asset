@@ -17,6 +17,10 @@ TagManager:
   - Option4
   - choosep1
   - choosep2
+  - spell2
+  - bullet
+  - life1
+  - life2
   layers:
   - Default
   - TransparentFX

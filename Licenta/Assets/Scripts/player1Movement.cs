@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour
+public class player1Movement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpSize;
@@ -30,8 +30,8 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
             {
                 if(isGrounded && isMoving){
-                    animator.SetBool("isWalkingBackwards", true);
-                    animator.SetBool("isWalking", false);
+                    animator.SetBool("isWalkingBackwards", false);
+                    animator.SetBool("isWalking", true);
                     animator.SetBool("isJumping", false);
                 }
                 direction = -1f;
@@ -40,8 +40,8 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
             {   
                 if(isGrounded && isMoving){
-                    animator.SetBool("isWalking", true);
-                    animator.SetBool("isWalkingBackwards", false);
+                    animator.SetBool("isWalking", false);
+                    animator.SetBool("isWalkingBackwards", true);
                     animator.SetBool("isJumping", false);
                 }
                 direction = 1f;
@@ -111,25 +111,29 @@ public class playerMovement : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("spell"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("spell") || collision.gameObject.CompareTag("spell2"))
         {
             isGrounded = true;
         }
-            
+        /*if (collision.gameObject.CompareTag("spell") || collision.gameObject.CompareTag("spell2"))
+        {
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+        }*/
+
 
         //if ()
-         //   isGrounded = true;
+        //   isGrounded = true;
 
-      /*  if (collision.gameObject.CompareTag("Target")){
-            if(Input.GetKey(KeyCode.I)){
-                animator.SetTrigger("blockhit");
-            }
-            else{
-                animator.SetTrigger("hit");
-                animator.SetTrigger("death");
-            }
-            
-        }*/
+        /*  if (collision.gameObject.CompareTag("Target")){
+              if(Input.GetKey(KeyCode.I)){
+                  animator.SetTrigger("blockhit");
+              }
+              else{
+                  animator.SetTrigger("hit");
+                  animator.SetTrigger("death");
+              }
+
+          }*/
 
     }
 
