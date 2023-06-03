@@ -113,21 +113,6 @@ public class player3 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("spell") || collision.gameObject.CompareTag("spell2"))
             isGrounded = true;
-        /*if (collision.gameObject.CompareTag("spell") || collision.gameObject.CompareTag("spell2"))
-        {
-            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
-        }*/
-
-       /* if (collision.gameObject.CompareTag("Target")){
-            if(Input.GetKey(KeyCode.Y)){
-                animator.SetTrigger("blockhit");
-            }
-            else{
-                animator.SetTrigger("hit");
-                animator.SetTrigger("death");
-            }
-            
-        }*/
 
     }
      public float getSpeed()

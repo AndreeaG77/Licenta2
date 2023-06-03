@@ -5,10 +5,16 @@ public class collisionHandler2 : MonoBehaviour
 {
 
     private MeshRenderer meshRenderer;
-
+    private float collisionCooldown = 0f;
+    private float cooldownDuration = 0.5f;
 
     private void Update()
     {
+        if (collisionCooldown > 0f)
+        {
+            collisionCooldown -= Time.deltaTime;
+        }
+
         if (Input.GetKeyDown(KeyCode.F) && Input.GetKeyDown(KeyCode.G))
         {
             GameObject character = GameObject.FindWithTag("player1");
@@ -33,7 +39,10 @@ public class collisionHandler2 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        if (collisionCooldown > 0f)
+        {
+            return;
+        }
 
         if (collision.gameObject.CompareTag("bullet"))
         {
@@ -96,6 +105,8 @@ public class collisionHandler2 : MonoBehaviour
             }
 
         }
+
+        collisionCooldown = cooldownDuration;
     }
 
     private void OnCollisionStay(Collision collision)
@@ -117,6 +128,11 @@ public class collisionHandler2 : MonoBehaviour
 
 
         }*/
+
+        if (collisionCooldown > 0f)
+        {
+            return;
+        }
 
         if (collision.gameObject.CompareTag("player1"))
         {
@@ -167,5 +183,7 @@ public class collisionHandler2 : MonoBehaviour
             }
 
         }
+
+        collisionCooldown = cooldownDuration;
     }
 }

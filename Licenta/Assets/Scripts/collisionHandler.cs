@@ -5,9 +5,16 @@ public class collisionHandler : MonoBehaviour
 {
 
     private MeshRenderer meshRenderer;
+    private float collisionCooldown = 0f;
+    private float cooldownDuration = 0.5f;
 
     private void Update()
     {
+        if (collisionCooldown > 0f)
+        {
+            collisionCooldown -= Time.deltaTime;
+        }
+
         if (Input.GetKeyDown(KeyCode.O) && Input.GetKeyDown(KeyCode.L))
         {
             GameObject character = GameObject.FindWithTag("player2");
@@ -32,6 +39,10 @@ public class collisionHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collisionCooldown > 0f)
+        {
+            return;
+        }
 
         if (collision.gameObject.CompareTag("bullet"))
         {
@@ -92,11 +103,13 @@ public class collisionHandler : MonoBehaviour
             }
             
         }
+
+        collisionCooldown = cooldownDuration;
     }
 
     private void OnCollisionStay(Collision collision)
     {
-      /*  if (collision.gameObject.CompareTag("spell"))
+        /*if (collision.gameObject.CompareTag("spell"))
         {
             meshRenderer = collision.gameObject.GetComponent<MeshRenderer>();
             //Debug.Log(meshRenderer.enabled);
@@ -113,6 +126,11 @@ public class collisionHandler : MonoBehaviour
 
 
         }*/
+
+        if (collisionCooldown > 0f)
+        {
+            return;
+        }
 
         if (collision.gameObject.CompareTag("player2")){
             GameObject characterA = gameObject;
@@ -161,5 +179,7 @@ public class collisionHandler : MonoBehaviour
             }
             
         }
+
+        collisionCooldown = cooldownDuration;
     }
 }

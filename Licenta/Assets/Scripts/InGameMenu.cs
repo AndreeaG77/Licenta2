@@ -10,6 +10,7 @@ public class InGameMenu : MonoBehaviour
 
     [SerializeField] private GameObject inGameMenu;
     [SerializeField] private GameObject controls;
+    [SerializeField] private GameObject playerUI;
 
 
     void Update()
@@ -31,12 +32,14 @@ public class InGameMenu : MonoBehaviour
     {
         inGameMenu.SetActive(false);
         controls.SetActive(false);
+        playerUI.SetActive(true);
         Time.timeScale = 1f;
         isPaused = false;
     }
 
     private void pauseGame()
     {
+        playerUI.SetActive(false);
         inGameMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;

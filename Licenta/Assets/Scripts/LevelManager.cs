@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,9 +8,10 @@ public class LevelManager : MonoBehaviour
     private selectPlayer2 player2;
     private int selectedCharacter1;
     private int selectedCharacter2;
-    public void Arcane()
+
+    public void Tournament()
     {
-        SceneManager.LoadScene("ChooseCharacter1");
+        SceneManager.LoadScene("EnterName");
     }
 
     public void Versus()
@@ -29,5 +31,23 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("selectedCharacter2", selectedCharacter2);
         SceneManager.LoadScene("ArenaSelection");
     }
+
+    public void Rematch()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void ReselectCharacters()
+    {
+        SceneManager.LoadScene("ChooseCharacter2");
+    }
+
+    public void ToStartMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+
 
 }

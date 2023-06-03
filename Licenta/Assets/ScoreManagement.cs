@@ -33,6 +33,7 @@ public class ScoreManagement : MonoBehaviour
     public TextMeshProUGUI countDown;
     public GameObject cd;
     private CountDown cdScript;
+    public GameObject afterGameMenu;
 
     private void Start()
     {
@@ -76,11 +77,23 @@ public class ScoreManagement : MonoBehaviour
             yield return StartCoroutine(calculateScore1());
             
         }
-        else
+        else if(healthScript1.health > healthScript2.health2)
         {
             //countDown.text = "10";
             yield return StartCoroutine(calculateScore2());
             //countDown.text = "10";
+        }
+        else
+        {
+            int randomValue = Random.Range(1, 3);
+            if (randomValue == 1)
+            {
+                yield return StartCoroutine(calculateScore1());
+            }
+            else
+            {
+                yield return StartCoroutine(calculateScore2());
+            }
         }
         //countDown.text = "10";
         forcedEnding = false;
@@ -158,8 +171,9 @@ public class ScoreManagement : MonoBehaviour
     {
         winText.text = winner + " wins";
         winText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         winText.gameObject.SetActive(false);
-        SceneManager.LoadScene("StartMenu");
+        afterGameMenu.SetActive(true);
+
     }
 }
