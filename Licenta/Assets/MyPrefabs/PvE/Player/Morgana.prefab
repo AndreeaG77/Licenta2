@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3128125716161921006
+--- !u!1001 &2604062880727528619
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5891566923271493995, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
       propertyPath: m_Name
-      value: CPUMorgana
+      value: Morgana
       objectReference: {fileID: 0}
     - target: {fileID: 6523706272690832337, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
       propertyPath: m_RootOrder
@@ -58,10 +58,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6912207073260413626, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
-    - {fileID: 2922491137252705565, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+    - {fileID: 194427031275519687, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+    - {fileID: 5436970859308048106, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
     - {fileID: 4994650232525256404, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
-    - {fileID: 2217884349971135131, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5891566923271493995, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6134199355626604813}
   m_SourcePrefab: {fileID: 100100000, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+--- !u!1 &8493913701496303040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5891566923271493995, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+  m_PrefabInstance: {fileID: 2604062880727528619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6134199355626604813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8493913701496303040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848356c0f3fdcd840b33e4677ffee4ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

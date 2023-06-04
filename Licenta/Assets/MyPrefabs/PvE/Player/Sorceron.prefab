@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &136334831025660500
+--- !u!1001 &5596425564268464828
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6276767341607961566, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
       propertyPath: m_Name
-      value: CPUSorceron
+      value: Sorceron
       objectReference: {fileID: 0}
     - target: {fileID: 6651920040979372388, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
       propertyPath: m_RootOrder
@@ -57,11 +57,31 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 8450096558879604804, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
-    - {fileID: 3336007549456780804, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
-    - {fileID: 8338879009470691957, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
     - {fileID: 1613707415143653117, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+    - {fileID: 8286525123690845693, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+    - {fileID: -9147808797265683586, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+    - {fileID: 8338879009470691957, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6276767341607961566, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2862714835471111779}
   m_SourcePrefab: {fileID: 100100000, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+--- !u!1 &1923584333477824866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6276767341607961566, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+  m_PrefabInstance: {fileID: 5596425564268464828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2862714835471111779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923584333477824866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848356c0f3fdcd840b33e4677ffee4ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

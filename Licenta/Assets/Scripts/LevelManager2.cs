@@ -6,7 +6,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class LevelManager2 : MonoBehaviour
 {
-    private List<string> arenas = new List<string> { "GatesOfHell", "TempleOfGods", "TempleOfSouls" };
+    private List<string> arenas = new List<string> { "CPUGatesOfHell", "CPUTempleOfGods", "CPUTempleOfSouls" };
     private System.Random random = new System.Random();
     private int currentSceneIndex = 0;
     private int currentCharacterIndex = 0;
@@ -18,6 +18,7 @@ public class LevelManager2 : MonoBehaviour
     {
         ShuffleSceneOrder();
         ShuffleCharactersOrder();
+        DontDestroyOnLoad(gameObject);
         //LoadNextScene();
     }
 
@@ -51,7 +52,7 @@ public class LevelManager2 : MonoBehaviour
 
     public void LoadNextScene()
     {
-        Debug.Log("xxx");
+        //Debug.Log("xxx");
         if(currentSceneIndex == 0)
         {
             GameObject p1 = GameObject.FindWithTag("choosep1");
@@ -60,16 +61,19 @@ public class LevelManager2 : MonoBehaviour
             PlayerPrefs.SetInt("selectedCharacter1", selectedCharacter1);
         }
 
-        if (characters[currentCharacterIndex] == selectedCharacter1)
-        {
-            currentCharacterIndex++;
-        }
-
         if (currentCharacterIndex < characters.Count)
         {
-            int nextCharacter = characters[currentCharacterIndex];
-            PlayerPrefs.SetInt("selectedCharacterCPU", nextCharacter);
-            currentCharacterIndex++;
+            if (characters[currentCharacterIndex] == selectedCharacter1)
+            {
+                currentCharacterIndex++;
+            }
+            if (currentCharacterIndex < characters.Count)
+            {
+                int nextCharacter = characters[currentCharacterIndex];
+                PlayerPrefs.SetInt("selectedCharacterCPU", nextCharacter);
+                currentCharacterIndex++;
+            }
+                
         }
 
         if (currentSceneIndex < arenas.Count)

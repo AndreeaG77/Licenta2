@@ -7,7 +7,7 @@ using TMPro;
 public class CountDown : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 60f;
+    float startingTime = 10f;
     public TextMeshProUGUI countdown;
     private bool isPaused = false;
 
@@ -47,6 +47,7 @@ public class CountDown : MonoBehaviour
     {
         //yield return new WaitForSeconds(3f);
         currentTime = startingTime;
+        countdown.color = Color.black;
     }
     public void PauseCountdown()
     {
