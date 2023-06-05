@@ -11,6 +11,7 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private GameObject settings;
     [SerializeField] private GameObject audioMenu;
     [SerializeField] private GameObject graphics;
+    [SerializeField] private GameObject highscore;
     [Header("Volume Setting")]
     [SerializeField] private TextMeshProUGUI volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
@@ -106,6 +107,18 @@ public class StartMenu : MonoBehaviour
         graphics.SetActive(false);
         audioMenu.SetActive(false);
         settings.SetActive(true);
+    }
+
+    public void loadMenu2()
+    {
+        startmenu.SetActive(true);
+        highscore.SetActive(false);
+    }
+
+    public void loadHighscore()
+    {
+        startmenu.SetActive(false);
+        highscore.SetActive(true);
     }
 
     public void quitGame()

@@ -8,11 +8,15 @@ public class CPUScript : MonoBehaviour
     private float speed = 3f;
     private float maxAttackTime = 10f;
     private GameObject player;
+    private GameObject enemy;
     private Transform playerT;
+    private CPUShootRifle shoot;
+    private bool nexus;
+    private bool sorceron;
     private float timeBetweenAttacks;
-    private bool isMoving = true;
-    private bool isChasing;
-    private bool shouldAttack;
+    public bool isMoving = true;
+    public bool isChasing;
+    public bool shouldAttack;
     private float randomTime;
     public int randomAttack;
     private string[] attacks = new string[] { "punch1", "kick1", "combo1" };
@@ -22,6 +26,16 @@ public class CPUScript : MonoBehaviour
 
     private void Start()
     {
+        enemy = GameObject.FindWithTag("player2");
+        if (enemy.name == "Nexus(Clone)")
+        {
+            nexus = true;
+            shoot = enemy.GetComponent<CPUShootRifle>();
+        }
+        if (enemy.name == "Sorceron(Clone)")
+        {
+            sorceron = true;
+        }
         player = GameObject.FindWithTag("player1");
         playerT = player.transform;
         timeBetweenAttacks = maxAttackTime;
@@ -66,9 +80,22 @@ public class CPUScript : MonoBehaviour
                 // Stop moving
                 StopCoroutine(MoveObject());
 
-                isChasing = true;
+                randomAttack = (int)Random.Range(0f, 3f);
+                if (nexus && randomAttack == 0)
+                {
+                    StartCoroutine(AttackCoroutine());
+                }
+                else if (sorceron && randomAttack == 2)
+                {
+                    StartCoroutine(AttackCoroutine());
+                }
+                else
+                {
+                    isChasing = true;
                 // Start the attack coroutine
-                StartCoroutine(ChaseCoroutine());
+                    StartCoroutine(ChaseCoroutine());
+                }
+
             }
 
             yield return null;
@@ -77,9 +104,13 @@ public class CPUScript : MonoBehaviour
 
     private IEnumerator AttackCoroutine()
     {
-        randomAttack = (int)Random.Range(0f, 3f);
+        //randomAttack = (int)Random.Range(0f, 3f);
 
         animator.SetBool(attacks[randomAttack], true);
+        if(nexus && randomAttack == 0)
+        {
+            shoot.Shoot();
+        }
         yield return new WaitForSeconds(1.5f);
         animator.SetBool(attacks[randomAttack], false);
 
@@ -134,5 +165,10 @@ public class CPUScript : MonoBehaviour
         {
             shouldAttack = true;
         }
+    }
+
+    public void StartMyCoroutine()
+    {
+        StartCoroutine(MoveObject());
     }
 }

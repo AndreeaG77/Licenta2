@@ -6,15 +6,21 @@ public class PCollisionHandler : MonoBehaviour
 
     private MeshRenderer meshRenderer;
     private float collisionCooldown = 0f;
-    private float cooldownDuration = 0.5f;
+    private float cooldownDuration = 0f;
     private CPUScript enemyScript;
     private GameObject enemy;
+    private GameObject characterA;
     private bool alreadyAttacked;
+    private damage damageA;
+    private Animator animatorA;
 
     private void Start()
     {
         enemy = GameObject.FindWithTag("player2");
+        characterA = GameObject.FindWithTag("player1");
         enemyScript = enemy.GetComponent<CPUScript>();
+        damage damageA = characterA.GetComponent<damage>();
+        animatorA = characterA.GetComponent<Animator>();
     }
     private void Update()
     {
@@ -23,15 +29,11 @@ public class PCollisionHandler : MonoBehaviour
             collisionCooldown -= Time.deltaTime;
         }
 
-        if (enemyScript.randomAttack == 3 && !alreadyAttacked)
+        if (enemyScript.randomAttack == 2 && !alreadyAttacked)
         {
-            alreadyAttacked = true;
-            GameObject character = GameObject.FindWithTag("player2");
-            if (character.name == "Sorceron(Clone)")
+            alreadyAttacked = true;;
+            if (enemy.name == "Sorceron(Clone)")
             {
-                GameObject characterA = gameObject;
-                damage damageA = characterA.GetComponent<damage>();
-
                 if (damageA != null)
                 {
                     StartCoroutine(spellDamage(damageA));
@@ -49,16 +51,9 @@ public class PCollisionHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collisionCooldown > 0f)
-        {
-            return;
-        }
 
         if (collision.gameObject.CompareTag("bullet"))
         {
-            GameObject characterA = gameObject;
-            damage damageA = characterA.GetComponent<damage>();
-
             if (damageA != null)
             {
                 damageA.Punch();
@@ -66,25 +61,24 @@ public class PCollisionHandler : MonoBehaviour
 
         }
 
+        if (collisionCooldown > 0f)
+        {
+            return;
+        }
+
         if (collision.gameObject.CompareTag("player2"))
         {
-            GameObject characterA = gameObject;
+            //Debug.Log("enter");
             GameObject characterB = collision.gameObject;
-
-            Animator animatorA = characterA.GetComponent<Animator>();
             Animator animatorB = characterB.GetComponent<Animator>();
 
             if (animatorA != null && animatorB != null)
             {
-
                 AnimatorStateInfo stateInfoA = animatorA.GetCurrentAnimatorStateInfo(0);
                 AnimatorStateInfo stateInfoB = animatorB.GetCurrentAnimatorStateInfo(0);
 
-
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("punch"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-
                     if (damageA != null)
                     {
                         damageA.Punch();
@@ -93,21 +87,17 @@ public class PCollisionHandler : MonoBehaviour
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("kick"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-
                     if (damageA != null)
                     {
-                        damageA.Punch();
+                        damageA.Kick();
                     }
                 }
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("combo"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-
                     if (damageA != null)
                     {
-                        damageA.Punch();
+                        damageA.Combo();
                     }
                 }
 
@@ -120,24 +110,6 @@ public class PCollisionHandler : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        /*if (collision.gameObject.CompareTag("spell"))
-        {
-            meshRenderer = collision.gameObject.GetComponent<MeshRenderer>();
-            //Debug.Log(meshRenderer.enabled);
-            if (meshRenderer != null && meshRenderer.enabled)
-            {
-                GameObject characterA = gameObject;
-                damage damageA = characterA.GetComponent<damage>();
-
-                if (damageA != null)
-                {
-                    damageA.Combo();
-                }
-            }
-
-
-        }*/
-
         if (collisionCooldown > 0f)
         {
             return;
@@ -145,48 +117,47 @@ public class PCollisionHandler : MonoBehaviour
 
         if (collision.gameObject.CompareTag("player2"))
         {
-            GameObject characterA = gameObject;
+            //Debug.Log("stay");
             GameObject characterB = collision.gameObject;
-            //Debug.Log("xx");
-            Animator animatorA = characterA.GetComponent<Animator>();
             Animator animatorB = characterB.GetComponent<Animator>();
 
             if (animatorA != null && animatorB != null)
             {
-
+                //Debug.Log("stayanim");
                 AnimatorStateInfo stateInfoA = animatorA.GetCurrentAnimatorStateInfo(0);
                 AnimatorStateInfo stateInfoB = animatorB.GetCurrentAnimatorStateInfo(0);
+                AnimatorClipInfo[] clipInfoArray = animatorB.GetCurrentAnimatorClipInfo(0);
+                string nume = clipInfoArray[0].clip.name;
+
+                //Debug.Log(stateInfoA.IsName("idle"));
+                Debug.Log(nume);
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("punch"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-                    //Debug.Log("00");
-                    if (damageA != null)
-                    {
-                        //Debug.Log("11");
-                        damageA.Punch();
-                    }
+                    //if (damageA != null)
+                    //{
+                    Debug.Log("punch");
+                    damageA.Punch();
+                   // }
                 }
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("kick"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-
-                    if (damageA != null)
-                    {
-                        damageA.Punch();
-                    }
+                    //if (damageA != null)
+                    //{
+                    Debug.Log("kick");
+                    damageA.Kick();
+                   // }
                 }
 
-                if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("combo"))
+               /* if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("combo"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-
-                    if (damageA != null)
-                    {
-                        damageA.Punch();
-                    }
-                }
+                    //if (damageA != null)
+                    //{
+                    Debug.Log("combo");
+                    damageA.Combo();
+                   // }
+                }*/
 
             }
 

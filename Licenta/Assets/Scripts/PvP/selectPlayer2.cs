@@ -12,7 +12,6 @@ public class selectPlayer2 : MonoBehaviour
 
     void Start()
     {
-        //player1box = GetComponent<GameObject>();
         selectedCharacter = 1;
         optionsDisplay[selectedCharacter].SetActive(true);
         namesDisplay[selectedCharacter].SetActive(true);

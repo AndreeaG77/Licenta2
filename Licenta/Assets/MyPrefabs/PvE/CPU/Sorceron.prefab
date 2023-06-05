@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 13400000, guid: c06f3b5d7bd10944381c431477d009e7, type: 2}
     - target: {fileID: 6276767341607961566, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
       propertyPath: m_Name
-      value: CPUSorceron
+      value: Sorceron
       objectReference: {fileID: 0}
     - target: {fileID: 6651920040979372388, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
       propertyPath: m_RootOrder
@@ -65,12 +65,20 @@ PrefabInstance:
     - {fileID: 3336007549456780804, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
     - {fileID: 8338879009470691957, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
     - {fileID: 1613707415143653117, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+    - {fileID: 8286525123690845693, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+    - {fileID: -9147808797265683586, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6276767341607961566, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6611610231705847556}
+    - targetCorrespondingSourceObject: {fileID: 6276767341607961566, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1313263206362836865}
+    - targetCorrespondingSourceObject: {fileID: 6276767341607961566, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5114707951287438296}
   m_SourcePrefab: {fileID: 100100000, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
 --- !u!1 &6268963858700624266 stripped
 GameObject:
@@ -87,5 +95,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9453287c0cabf8b44a4fbfb6320aeff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomAttack: 0
+--- !u!114 &1313263206362836865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268963858700624266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e5713f27408c14d8ebc46d9575f934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punchDamage: 10
+  kickDamage: 20
+  comboDamage: 30
+--- !u!114 &5114707951287438296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268963858700624266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59044491d95800c4e89f7631d8256b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

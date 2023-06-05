@@ -30,7 +30,6 @@ public class damage2 : MonoBehaviour
         if (Input.GetKey(KeyCode.I))
         {
             isGuarding = true;
-            //Debug.Log("garda");
         }
         else
         {
@@ -68,25 +67,14 @@ public class damage2 : MonoBehaviour
         {
             if (animator != null)
             {
-                Debug.Log("xx");
-                //animator.SetBool("blockhitB", true);
-                //animator.SetBool("block1", false);
                 animator.SetTrigger("blockhitT");
-                //yield return new WaitForSeconds(3f);
-                //yield return null;
-                //animator.SetBool("blockhitB", false);
-                //animator.SetBool("block1", true);
             }
         }
         else
         {
             if (animator != null)
             {
-                //animator.SetBool("hitB", true);
                 animator.SetTrigger("hit");
-                //yield return new WaitForSeconds(2f);
-                //yield return null;
-                //animator.SetBool("hitB", false);
             }
         }
 

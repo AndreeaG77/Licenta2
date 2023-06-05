@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class spell : MonoBehaviour
 {
-    //[SerializeField] private Rigidbody bodyplayer;
     [SerializeField] private MeshRenderer meshRenderer;
-    //[SerializeField] private BoxCollider boxCollider;
-    //private BoxCollider boxCollider;
     private Rigidbody bodyspell;
     private GameObject player2;
     private Transform playerT;

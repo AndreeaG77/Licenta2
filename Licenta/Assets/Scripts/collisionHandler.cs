@@ -1,13 +1,22 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class collisionHandler : MonoBehaviour
 {
 
-    private MeshRenderer meshRenderer;
     private float collisionCooldown = 0f;
     private float cooldownDuration = 0.5f;
+    private GameObject characterA;
+    private damage damageA;
+    private Animator animatorA;
 
+    private void Start()
+    {
+        characterA = GameObject.FindWithTag("player2");
+        damageA = characterA.GetComponent<damage>();
+        animatorA = characterA.GetComponent<Animator>();
+    }
     private void Update()
     {
         if (collisionCooldown > 0f)
@@ -17,12 +26,8 @@ public class collisionHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.O) && Input.GetKeyDown(KeyCode.L))
         {
-            GameObject character = GameObject.FindWithTag("player2");
-            if (character.name == "Sorceron(Clone)")
+            if (characterA.name == "Sorceron(Clone)")
             {
-                GameObject characterA = gameObject;
-                damage damageA = characterA.GetComponent<damage>();
-
                 if (damageA != null)
                 {
                     StartCoroutine(spellDamage(damageA));
@@ -46,9 +51,6 @@ public class collisionHandler : MonoBehaviour
 
         if (collision.gameObject.CompareTag("bullet"))
         {
-            GameObject characterA = gameObject;         
-            damage damageA = characterA.GetComponent<damage>();
-
             if (damageA != null)
             {
                 damageA.Punch();
@@ -57,23 +59,17 @@ public class collisionHandler : MonoBehaviour
         }
 
         if (collision.gameObject.CompareTag("player2")){
-            GameObject characterA = gameObject;
-            GameObject characterB = collision.gameObject;
 
-            Animator animatorA = characterA.GetComponent<Animator>();
+            GameObject characterB = collision.gameObject;
             Animator animatorB = characterB.GetComponent<Animator>();
 
             if (animatorA != null && animatorB != null)
             {
-
                 AnimatorStateInfo stateInfoA = animatorA.GetCurrentAnimatorStateInfo(0);
                 AnimatorStateInfo stateInfoB = animatorB.GetCurrentAnimatorStateInfo(0);
 
-
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("punch"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-
                     if (damageA != null)
                     {
                         damageA.Punch();
@@ -82,21 +78,17 @@ public class collisionHandler : MonoBehaviour
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("kick"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-
                     if (damageA != null)
                     {
-                        damageA.Punch();
+                        damageA.Kick();
                     }
                 }
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("combo"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-
                     if (damageA != null)
                     {
-                        damageA.Punch();
+                        damageA.Combo();
                     }
                 }
                 
@@ -109,70 +101,41 @@ public class collisionHandler : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        /*if (collision.gameObject.CompareTag("spell"))
-        {
-            meshRenderer = collision.gameObject.GetComponent<MeshRenderer>();
-            //Debug.Log(meshRenderer.enabled);
-            if (meshRenderer != null && meshRenderer.enabled)
-            {
-                GameObject characterA = gameObject;
-                damage damageA = characterA.GetComponent<damage>();
-
-                if (damageA != null)
-                {
-                    damageA.Combo();
-                }
-            }
-
-
-        }*/
-
         if (collisionCooldown > 0f)
         {
             return;
         }
 
         if (collision.gameObject.CompareTag("player2")){
-            GameObject characterA = gameObject;
             GameObject characterB = collision.gameObject;
-            //Debug.Log("xx");
-            Animator animatorA = characterA.GetComponent<Animator>();
             Animator animatorB = characterB.GetComponent<Animator>();
 
             if (animatorA != null && animatorB != null)
             {
-
                 AnimatorStateInfo stateInfoA = animatorA.GetCurrentAnimatorStateInfo(0);
                 AnimatorStateInfo stateInfoB = animatorB.GetCurrentAnimatorStateInfo(0);
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("punch"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-                    //Debug.Log("00");
                     if (damageA != null)
                     {
-                        //Debug.Log("11");
                         damageA.Punch();
                     }
                 }
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("kick"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-
                     if (damageA != null)
                     {
-                        damageA.Punch();
+                        damageA.Kick();
                     }
                 }
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("combo"))
                 {
-                    damage damageA = characterA.GetComponent<damage>();
-
                     if (damageA != null)
                     {
-                        damageA.Punch();
+                        damageA.Combo();
                     }
                 }
                 

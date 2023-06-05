@@ -24,7 +24,6 @@ public class player1Movement : MonoBehaviour
     
     void Update()
     {
-        //float direction = Input.GetAxis("Horizontal");
         float direction = 0f;
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -93,7 +92,6 @@ public class player1Movement : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.I)){
-            //animator.SetTrigger("block");
             animator.SetBool("block1", true);
         }
         if(Input.GetKeyUp(KeyCode.I)){
@@ -115,26 +113,6 @@ public class player1Movement : MonoBehaviour
         {
             isGrounded = true;
         }
-        /*if (collision.gameObject.CompareTag("spell") || collision.gameObject.CompareTag("spell2"))
-        {
-            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
-        }*/
-
-
-        //if ()
-        //   isGrounded = true;
-
-        /*  if (collision.gameObject.CompareTag("Target")){
-              if(Input.GetKey(KeyCode.I)){
-                  animator.SetTrigger("blockhit");
-              }
-              else{
-                  animator.SetTrigger("hit");
-                  animator.SetTrigger("death");
-              }
-
-          }*/
-
     }
 
     public float getSpeed()

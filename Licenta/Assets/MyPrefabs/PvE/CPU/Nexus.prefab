@@ -1403,11 +1403,11 @@ GameObject:
   - component: {fileID: 6438164897749676933}
   - component: {fileID: 5640886701072569544}
   - component: {fileID: 2185198030613827045}
-  - component: {fileID: 3393100961781904284}
-  - component: {fileID: 5744580119530713771}
-  - component: {fileID: 1621094651837286540}
   - component: {fileID: 5436503305164134693}
   - component: {fileID: 2888421575685842069}
+  - component: {fileID: 4233811047920721089}
+  - component: {fileID: 3266702737280369061}
+  - component: {fileID: 3831766474743076935}
   m_Layer: 0
   m_Name: Nexus
   m_TagString: Untagged
@@ -1437,7 +1437,7 @@ Transform:
   - {fileID: 2371859300007667713}
   - {fileID: 7907271625928371753}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5640886701072569544
 Animator:
@@ -1487,51 +1487,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 2
---- !u!114 &3393100961781904284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5280775527618023347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20c26358a3d299b469d500053317e303, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  punchDamage: 10
-  kickDamage: 20
-  comboDamage: 30
-  guardedPunchDamage: 5
-  guardedKickDamage: 10
-  guardedComboDamage: 15
---- !u!114 &5744580119530713771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5280775527618023347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 348d78400cd368e4e9fee199c2953efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1621094651837286540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5280775527618023347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f8f3cafc76d66246a54885ee3a7b767, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpawnPoint: {fileID: 7907271625928371753}
-  bulletPrefab: {fileID: 3734324277607042616, guid: 6d1505db97d6819448cad09c971b92a1, type: 3}
-  bulletSpeed: 10
 --- !u!136 &5436503305164134693
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1567,7 +1522,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9453287c0cabf8b44a4fbfb6320aeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 1
+  isChasing: 0
+  shouldAttack: 0
   randomAttack: 0
+--- !u!114 &4233811047920721089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5280775527618023347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59044491d95800c4e89f7631d8256b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3266702737280369061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5280775527618023347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e5713f27408c14d8ebc46d9575f934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punchDamage: 10
+  kickDamage: 20
+  comboDamage: 30
+--- !u!114 &3831766474743076935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5280775527618023347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715a4fd0d72997d4d8712dda8197fd7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 7907271625928371753}
+  bulletPrefab: {fileID: 3734324277607042616, guid: 6d1505db97d6819448cad09c971b92a1, type: 3}
+  bulletSpeed: 10
 --- !u!1 &5344350070442409443
 GameObject:
   m_ObjectHideFlags: 0

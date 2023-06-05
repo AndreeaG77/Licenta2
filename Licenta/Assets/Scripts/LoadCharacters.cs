@@ -35,22 +35,11 @@ public class LoadCharacters : MonoBehaviour
         // disable movement, damage and collisionHandler scripts for player 2 option
         if (selectedCharacter1 == 0)
         {
-            Transform nexus = clone1.transform.Find("Robot_Soldier_Black");
-
-            player1Movement playerscript1 = nexus.GetComponent<player1Movement>();
-            playerscript1.enabled = false;
-
-            damage2 damageS2 = nexus.GetComponent<damage2>();
-            damageS2.enabled = false;
-
-            collisionHandler2 collisionH2S = nexus.GetComponent<collisionHandler2>();
-            collisionH2S.enabled = false;
-
-            ShootRifle2 rifleS = nexus.GetComponent<ShootRifle2>();
+            ShootRifle2 rifleS = clone1.GetComponent<ShootRifle2>();
             rifleS.enabled = false;
         }
-        else
-        {
+       // else
+       // {
             player1Movement playerscript1 = clone1.GetComponent<player1Movement>();
             playerscript1.enabled = false;
 
@@ -59,7 +48,7 @@ public class LoadCharacters : MonoBehaviour
 
             collisionHandler2 collisionH2S = clone1.GetComponent<collisionHandler2>();
             collisionH2S.enabled = false;
-        }
+       // }
 
         // instantiate spell object for character == 2
         if(selectedCharacter1 == 2)
@@ -79,21 +68,11 @@ public class LoadCharacters : MonoBehaviour
         // disable movement, damage and collisionHandler scripts for player 1 option
         if (selectedCharacter2 == 0)
         {
-            Transform nexus = clone2.transform.Find("Robot_Soldier_Black");
-            player3 playerscript2 = nexus.GetComponent<player3>();
-            playerscript2.enabled = false;
-
-            damage damageS1 = nexus.GetComponent<damage>();
-            damageS1.enabled = false;
-
-            collisionHandler collisionHS = nexus.GetComponent<collisionHandler>();
-            collisionHS.enabled = false;
-
-            ShootRifle rifleS = nexus.GetComponent<ShootRifle>();
+            ShootRifle rifleS = clone2.GetComponent<ShootRifle>();
             rifleS.enabled = false;
         }
-        else
-        {
+       // else
+       // {
             player3 playerscript2 = clone2.GetComponent<player3>();
             playerscript2.enabled = false;
 
@@ -102,7 +81,7 @@ public class LoadCharacters : MonoBehaviour
 
             collisionHandler collisionHS = clone2.GetComponent<collisionHandler>();
             collisionHS.enabled = false;
-        }
+       // }
 
         // instantiate spell object for character == 2
         if (selectedCharacter2 == 2)

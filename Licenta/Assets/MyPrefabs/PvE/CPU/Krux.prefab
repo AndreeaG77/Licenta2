@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2295250728632853619, guid: e9b5d23670e27bd4399dba439878aa5e, type: 3}
       propertyPath: m_Name
-      value: CPUKrux
+      value: Krux
       objectReference: {fileID: 0}
     - target: {fileID: 6219795553378404126, guid: e9b5d23670e27bd4399dba439878aa5e, type: 3}
       propertyPath: m_Material
@@ -65,12 +65,20 @@ PrefabInstance:
     - {fileID: 5618617089747870145, guid: e9b5d23670e27bd4399dba439878aa5e, type: 3}
     - {fileID: 6977964100689215753, guid: e9b5d23670e27bd4399dba439878aa5e, type: 3}
     - {fileID: 1222242130815461615, guid: e9b5d23670e27bd4399dba439878aa5e, type: 3}
+    - {fileID: 1092692102260746350, guid: e9b5d23670e27bd4399dba439878aa5e, type: 3}
+    - {fileID: -5916372547826432696, guid: e9b5d23670e27bd4399dba439878aa5e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2295250728632853619, guid: e9b5d23670e27bd4399dba439878aa5e, type: 3}
       insertIndex: -1
       addedObject: {fileID: -7371623093562228944}
+    - targetCorrespondingSourceObject: {fileID: 2295250728632853619, guid: e9b5d23670e27bd4399dba439878aa5e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4469058126574479461}
+    - targetCorrespondingSourceObject: {fileID: 2295250728632853619, guid: e9b5d23670e27bd4399dba439878aa5e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 172308135913717566}
   m_SourcePrefab: {fileID: 100100000, guid: e9b5d23670e27bd4399dba439878aa5e, type: 3}
 --- !u!1 &5526036124252346197 stripped
 GameObject:
@@ -89,3 +97,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9453287c0cabf8b44a4fbfb6320aeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomAttack: 0
+--- !u!114 &4469058126574479461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526036124252346197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59044491d95800c4e89f7631d8256b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &172308135913717566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526036124252346197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e5713f27408c14d8ebc46d9575f934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punchDamage: 10
+  kickDamage: 20
+  comboDamage: 30

@@ -23,7 +23,6 @@ public class player3 : MonoBehaviour
     
     void Update()
     {
-        //float direction = Input.GetAxis("Horizontal");
         float direction = 0f;
         
 
@@ -93,7 +92,6 @@ public class player3 : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.Y)){
-            //animator.SetTrigger("block");
             animator.SetBool("block1", true);
         }
         if(Input.GetKeyUp(KeyCode.Y)){

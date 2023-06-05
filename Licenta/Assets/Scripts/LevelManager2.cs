@@ -8,7 +8,7 @@ public class LevelManager2 : MonoBehaviour
 {
     private List<string> arenas = new List<string> { "CPUGatesOfHell", "CPUTempleOfGods", "CPUTempleOfSouls" };
     private System.Random random = new System.Random();
-    private int currentSceneIndex = 0;
+    public int currentSceneIndex = 0;
     private int currentCharacterIndex = 0;
     private selectPlayer1 player1;
     private int selectedCharacter1;
@@ -19,7 +19,6 @@ public class LevelManager2 : MonoBehaviour
         ShuffleSceneOrder();
         ShuffleCharactersOrder();
         DontDestroyOnLoad(gameObject);
-        //LoadNextScene();
     }
 
     private void ShuffleSceneOrder()
@@ -52,13 +51,14 @@ public class LevelManager2 : MonoBehaviour
 
     public void LoadNextScene()
     {
-        //Debug.Log("xxx");
         if(currentSceneIndex == 0)
         {
             GameObject p1 = GameObject.FindWithTag("choosep1");
             player1 = p1.GetComponent<selectPlayer1>();
             selectedCharacter1 = player1.selectedCharacter;
             PlayerPrefs.SetInt("selectedCharacter1", selectedCharacter1);
+            PlayerPrefs.SetInt("timer", 0);
+            PlayerPrefs.SetInt("roundNumber", 1);
         }
 
         if (currentCharacterIndex < characters.Count)
@@ -79,8 +79,8 @@ public class LevelManager2 : MonoBehaviour
         if (currentSceneIndex < arenas.Count)
         {
             string nextScene = arenas[currentSceneIndex];
-            SceneManager.LoadScene(nextScene);
             currentSceneIndex++;
+            SceneManager.LoadScene(nextScene);
         }
         else
         {

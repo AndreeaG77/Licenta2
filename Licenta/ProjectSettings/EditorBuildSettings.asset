@@ -6,42 +6,45 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartMenu.unity
+    path: Assets/Scenes/StartingScenes/WelcomeScene.unity
+    guid: d490a9a18b0f7944494e93e88b50f6ba
+  - enabled: 1
+    path: Assets/Scenes/StartingScenes/StartMenu.unity
     guid: a72fceb2e5569544b92f34bceec1bee3
   - enabled: 1
-    path: Assets/Scenes/EnterName.unity
+    path: Assets/Scenes/PvE/Others/EnterName.unity
     guid: 2d7214f9c2273c54ebf05fe0d5066d4d
   - enabled: 1
-    path: Assets/Scenes/ChooseCharacter1.unity
+    path: Assets/Scenes/PvE/Others/ChooseCharacter1.unity
     guid: afad3bdd9ee6461459ec6e2e5a396d0d
   - enabled: 1
-    path: Assets/Scenes/ChooseCharacter2.unity
+    path: Assets/Scenes/PvP/Others/ChooseCharacter2.unity
     guid: b552d7b4c95511047b06d091b1321fd3
   - enabled: 1
-    path: Assets/Scenes/ArenaSelection.unity
+    path: Assets/Scenes/PvP/Others/ArenaSelection.unity
     guid: 72b993b963102f64b95d5749dddc5d43
   - enabled: 1
-    path: Assets/Scenes/PvP/GatesOfHell.unity
+    path: Assets/Scenes/PvP/Arenas/GatesOfHell.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/PvP/TempleOfGods.unity
+    path: Assets/Scenes/PvP/Arenas/TempleOfGods.unity
     guid: 64fbc14e82e6c7b4193830301daafcf2
   - enabled: 1
-    path: Assets/Scenes/PvP/TempleOfSouls.unity
+    path: Assets/Scenes/PvP/Arenas/TempleOfSouls.unity
     guid: 42c00b4a0297e594c9ad2a49da903f68
   - enabled: 1
-    path: Assets/Scenes/PvE/CPUGatesOfHell.unity
+    path: Assets/Scenes/PvE/Arenas/CPUGatesOfHell.unity
     guid: c7f350a60317832489fb48336155e43f
   - enabled: 1
-    path: Assets/Scenes/PvE/CPUTempleOfGods.unity
+    path: Assets/Scenes/PvE/Arenas/CPUTempleOfGods.unity
     guid: bae95f409d7992643b856e671fc25c51
   - enabled: 1
-    path: Assets/Scenes/PvE/CPUTempleOfSouls.unity
+    path: Assets/Scenes/PvE/Arenas/CPUTempleOfSouls.unity
     guid: cf3b5093bfd0d5340b6c9620816779a2
   - enabled: 1
-    path: Assets/Scenes/PvE/FailedScene.unity
+    path: Assets/Scenes/PvE/Others/FailedScene.unity
     guid: 618529f4079869546bdcbab99ab37215
   - enabled: 1
-    path: Assets/Scenes/PvE/FinalScene.unity
+    path: Assets/Scenes/PvE/Others/FinalScene.unity
     guid: 389e9d31709229f40863cd62b83280e0
   m_configObjects: {}

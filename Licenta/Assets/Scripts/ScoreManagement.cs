@@ -73,15 +73,12 @@ public class ScoreManagement : MonoBehaviour
         forcedEnding = true;
         if(healthScript1.health < healthScript2.health2)
         {
-            //countDown.text = "10";
             yield return StartCoroutine(calculateScore1());
             
         }
         else if(healthScript1.health > healthScript2.health2)
         {
-            //countDown.text = "10";
             yield return StartCoroutine(calculateScore2());
-            //countDown.text = "10";
         }
         else
         {
@@ -95,7 +92,6 @@ public class ScoreManagement : MonoBehaviour
                 yield return StartCoroutine(calculateScore2());
             }
         }
-        //countDown.text = "10";
         forcedEnding = false;
     }
     IEnumerator calculateScore1()
@@ -113,8 +109,6 @@ public class ScoreManagement : MonoBehaviour
             point2p2.SetActive(true);
             yield return StartCoroutine(endGame(playerName2));
         }
-        //yield return resetCountdown();
-        //yield return null;
         isCalculatingScore1 = false;
     }
 
@@ -135,7 +129,6 @@ public class ScoreManagement : MonoBehaviour
             yield return StartCoroutine(endGame(playerName1));
         }
 
-        //yield return null;
         isCalculatingScore2 = false;
     }
     IEnumerator startGame()
