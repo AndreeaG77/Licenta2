@@ -41,6 +41,8 @@ public class CPUScoreManagement : MonoBehaviour
     private bool isPaused;
     private int roundNumber;
     public CPUScript cpuScript;
+    //public CPUScript2 cpuScript2;
+    //public CPUScript3 cpuScript3;
 
     private void Start()
     {
@@ -49,6 +51,8 @@ public class CPUScoreManagement : MonoBehaviour
         player1 = GameObject.FindWithTag("player1");
         player2 = GameObject.FindWithTag("player2");
         cpuScript = player2.GetComponent<CPUScript>();
+        //cpuScript2 = player2.GetComponent<CPUScript2>();
+        //cpuScript3 = player2.GetComponent<CPUScript3>();
         playerName1 = name1.text;
         playerName2 = name2.text;
         animatorp1 = player1.GetComponent<Animator>();
@@ -117,11 +121,23 @@ public class CPUScoreManagement : MonoBehaviour
         isCalculatingScore1 = true;
         animatorp1.SetTrigger("death");
         cpuScript.StopAllCoroutines();
+        //cpuScript2.StopAllCoroutines();
+        //cpuScript3.StopAllCoroutines();
         animatorp2.SetBool("isWalkingBackwards", false);
         animatorp2.SetBool("isWalking", false);
+
         cpuScript.isMoving = true;
         cpuScript.isChasing=false;
         cpuScript.shouldAttack=false;
+
+       // cpuScript2.isMoving = true;
+       // cpuScript2.isChasing = false;
+       // cpuScript2.shouldAttack = false;
+
+      //  cpuScript3.isMoving = true;
+       // cpuScript3.isChasing = false;
+       // cpuScript3.shouldAttack = false;
+
         score2 += 1;
         if (score2 == 1)
         {
@@ -141,9 +157,21 @@ public class CPUScoreManagement : MonoBehaviour
         isCalculatingScore2 = true;
         animatorp2.SetTrigger("death");
         cpuScript.StopAllCoroutines();
+      //  cpuScript2.StopAllCoroutines();
+       // cpuScript3.StopAllCoroutines();
+
         cpuScript.isMoving = true;
         cpuScript.isChasing = false;
         cpuScript.shouldAttack = false;
+
+      //  cpuScript2.isMoving = true;
+      //  cpuScript2.isChasing = false;
+      //  cpuScript2.shouldAttack = false;
+
+       // cpuScript3.isMoving = true;
+       // cpuScript3.isChasing = false;
+       // cpuScript3.shouldAttack = false;
+
         score1 += 1;
         if (score1 == 1)
         {
@@ -188,6 +216,8 @@ public class CPUScoreManagement : MonoBehaviour
         cdScript.resetCountdown2();
         cdScript.ResumeCountdown();
         cpuScript.StartMyCoroutine();
+       // cpuScript2.StartMyCoroutine();
+       // cpuScript3.StartMyCoroutine();
         isPaused = false;
 
     }

@@ -8,13 +8,18 @@ public class CPUDamage : MonoBehaviour
     public int kickDamage = 20;
     public int comboDamage = 30;
 
+    private GameObject enemy;
     private Animator animator;
     private Image healthBarI;
     private healthBar2 healthScript;
 
+    public AudioSource source;
+    public AudioClip clip;
+
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        enemy = GameObject.FindWithTag("player2");
+        animator = enemy.GetComponent<Animator>();
         healthBarI = GameObject.FindWithTag("life2").GetComponent<Image>();
         healthScript = healthBarI.GetComponent<healthBar2>();
     }
@@ -36,11 +41,17 @@ public class CPUDamage : MonoBehaviour
 
     public void DealDamage(int damage)
     {
+        enemy = GameObject.FindWithTag("player2");
+        animator = enemy.GetComponent<Animator>();
+        healthBarI = GameObject.FindWithTag("life2").GetComponent<Image>();
+        healthScript = healthBarI.GetComponent<healthBar2>();
         healthScript.health2 -= damage;
         
             if (animator != null)
             {
-                animator.SetTrigger("hit");
+            source.clip = clip;
+            source.PlayOneShot(source.clip);
+            animator.SetTrigger("hit");
             }
 
     }

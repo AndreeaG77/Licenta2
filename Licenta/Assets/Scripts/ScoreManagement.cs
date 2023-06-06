@@ -34,6 +34,7 @@ public class ScoreManagement : MonoBehaviour
     public GameObject cd;
     private CountDown cdScript;
     public GameObject afterGameMenu;
+    public GameObject playerUI;
 
     private void Start()
     {
@@ -166,6 +167,7 @@ public class ScoreManagement : MonoBehaviour
         winText.gameObject.SetActive(true);
         yield return new WaitForSeconds(3f);
         winText.gameObject.SetActive(false);
+        playerUI.SetActive(false);
         afterGameMenu.SetActive(true);
 
     }

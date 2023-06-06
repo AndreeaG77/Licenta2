@@ -1358,7 +1358,7 @@ ModelImporter:
     second: Weapons_3_1
   - first:
       74: 7400000
-    second: backwalkshield
+    second: walkBack
   - first:
       95: 9500000
     second: //RootNode
@@ -1455,7 +1455,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: backwalkshield
+      name: walkBack
       takeName: Take 001
       internalID: 7400000
       firstFrame: 1

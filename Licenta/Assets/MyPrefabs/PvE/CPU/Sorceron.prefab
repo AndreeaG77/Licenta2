@@ -9,6 +9,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 900166118934739880, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+      propertyPath: m_Radius
+      value: 0.7304979
+      objectReference: {fileID: 0}
+    - target: {fileID: 900166118934739880, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+      propertyPath: m_Center.z
+      value: 0.13338363
+      objectReference: {fileID: 0}
+    - target: {fileID: 900166118934739880, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: c06f3b5d7bd10944381c431477d009e7, type: 2}
@@ -60,6 +68,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7079479734278905767, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079479734278905767, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079479734278905767, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8450096558879604804, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
     - {fileID: 3336007549456780804, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
@@ -97,7 +117,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9453287c0cabf8b44a4fbfb6320aeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 1
+  isChasing: 0
+  shouldAttack: 0
   randomAttack: 0
+  source: {fileID: 8673697741792405857}
+  clip: {fileID: 8300000, guid: c6030e0f3f1f33d41a9dddc1bef5321d, type: 3}
 --- !u!114 &1313263206362836865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +138,8 @@ MonoBehaviour:
   punchDamage: 10
   kickDamage: 20
   comboDamage: 30
+  source: {fileID: 8673697741792405857}
+  clip: {fileID: 8300000, guid: c6030e0f3f1f33d41a9dddc1bef5321d, type: 3}
 --- !u!114 &5114707951287438296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59044491d95800c4e89f7631d8256b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &8673697741792405857 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8771729950704716597, guid: 6e9e535c611d4c74abc9c8d6a2aa74e7, type: 3}
+  m_PrefabInstance: {fileID: 136334831025660500}
+  m_PrefabAsset: {fileID: 0}

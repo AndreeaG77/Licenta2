@@ -12,15 +12,20 @@ public class damage : MonoBehaviour
     public int guardedKickDamage = 10;
     public int guardedComboDamage = 15;
 
+    private GameObject player;
     private Animator animator;
     private Image healthBarI;
     private healthBar healthScript;
 
     private bool isGuarding;
 
+    public AudioSource source;
+    public AudioClip clip;
+
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        player = GameObject.FindWithTag("player1");
+        animator = player.GetComponent<Animator>();
         healthBarI = GameObject.FindWithTag("life1").GetComponent<Image>();
         healthScript = healthBarI.GetComponent<healthBar>();
     }
@@ -35,11 +40,6 @@ public class damage : MonoBehaviour
         {
             isGuarding = false;
         }
-    }
-
-    public void SetGuard(bool isGuarding)
-    {
-        this.isGuarding = isGuarding;
     }
 
     public void Punch()
@@ -62,11 +62,17 @@ public class damage : MonoBehaviour
 
     public void DealDamage(int damage, bool guard)
     {
+        player = GameObject.FindWithTag("player1");
+        animator = player.GetComponent<Animator>();
+        healthBarI = GameObject.FindWithTag("life1").GetComponent<Image>();
+        healthScript = healthBarI.GetComponent<healthBar>();
         healthScript.health -= damage;
         if (guard)
         {
             if (animator != null)
             {
+                source.clip = clip;
+                source.PlayOneShot(source.clip);
                 animator.SetTrigger("blockhitT");
             }
         }
@@ -74,6 +80,8 @@ public class damage : MonoBehaviour
         {
             if (animator != null)
             {
+                source.clip = clip;
+                source.PlayOneShot(source.clip);
                 animator.SetTrigger("hit");
             }
         }

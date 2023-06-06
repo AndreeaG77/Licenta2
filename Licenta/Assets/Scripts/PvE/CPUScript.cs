@@ -1,12 +1,14 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CPUScript : MonoBehaviour
 {
-    private float speed = 3f;
-    private float maxAttackTime = 10f;
+    private float speed = 2f;
+    private float maxAttackTime;
+    private float minAttackTime;
     private GameObject player;
     private GameObject enemy;
     private Transform playerT;
@@ -20,12 +22,33 @@ public class CPUScript : MonoBehaviour
     private float randomTime;
     public int randomAttack;
     private string[] attacks = new string[] { "punch1", "kick1", "combo1" };
-
-    private Rigidbody body;
+   // private Rigidbody body;
     private Animator animator;
+    private int roundNumber;
+    public AudioSource source;
+    public AudioClip clip;
 
     private void Start()
     {
+        roundNumber = PlayerPrefs.GetInt("roundNumber");
+
+        if(roundNumber == 1)
+        {
+            maxAttackTime = 12f;
+            minAttackTime = 2f;
+        }
+        if (roundNumber == 2)
+        {
+            maxAttackTime = 10f;
+            minAttackTime = 2f;
+        }
+
+        if (roundNumber == 3)
+        {
+            maxAttackTime = 8f;
+            minAttackTime = 2f;
+        }
+
         enemy = GameObject.FindWithTag("player2");
         if (enemy.name == "Nexus(Clone)")
         {
@@ -39,14 +62,17 @@ public class CPUScript : MonoBehaviour
         player = GameObject.FindWithTag("player1");
         playerT = player.transform;
         timeBetweenAttacks = maxAttackTime;
-        body = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        //body = GetComponent<Rigidbody>();
+
+        animator = enemy.GetComponent<Animator>();
         randomTime = Random.Range(0f, 3f);
         StartCoroutine(MoveObject());
     }
 
     private IEnumerator MoveObject()
     {
+        enemy = GameObject.FindWithTag("player2");
+        animator = enemy.GetComponent<Animator>();
         while (isMoving)
         {
             if(speed > 0)
@@ -79,8 +105,16 @@ public class CPUScript : MonoBehaviour
 
                 // Stop moving
                 StopCoroutine(MoveObject());
-
-                randomAttack = (int)Random.Range(0f, 3f);
+               // Debug.Log(roundNumber);
+                if(roundNumber == 3)
+                {
+                    randomAttack = GetRandomAction();
+                }
+                else
+                {
+                    randomAttack = (int)Random.Range(0f, 3f);
+                }
+                
                 if (nexus && randomAttack == 0)
                 {
                     StartCoroutine(AttackCoroutine());
@@ -102,9 +136,34 @@ public class CPUScript : MonoBehaviour
         }
     }
 
+    private int GetRandomAction()
+    {
+        float randomValue = Random.value;
+        float cumulativeProbability = 0f;
+        float[] probabilities = new float[] { 0.25f, 0.35f, 0.40f };
+
+        for (int i = 0; i < attacks.Length; i++)
+        {
+            cumulativeProbability += probabilities[i];
+            if (randomValue <= cumulativeProbability)
+            {
+                return i;
+            }
+        }
+
+        // Fallback to the last action if no match found (shouldn't happen if probabilities are correct)
+        return attacks.Length - 1;
+    }
     private IEnumerator AttackCoroutine()
     {
         //randomAttack = (int)Random.Range(0f, 3f);
+        enemy = GameObject.FindWithTag("player2");
+        animator = enemy.GetComponent<Animator>();
+        if(enemy.name == "Morgana(Clone)")
+        {
+            source.clip = clip;
+            source.PlayOneShot(source.clip);
+        }
 
         animator.SetBool(attacks[randomAttack], true);
         if(nexus && randomAttack == 0)
@@ -116,7 +175,7 @@ public class CPUScript : MonoBehaviour
 
         randomAttack = 0;
 
-        timeBetweenAttacks = Random.Range(0f, maxAttackTime);
+        timeBetweenAttacks = Random.Range(minAttackTime, maxAttackTime);
         isMoving = true;
 
         speed *= -1f;
@@ -125,6 +184,9 @@ public class CPUScript : MonoBehaviour
 
     private IEnumerator ChaseCoroutine()
     {
+        enemy = GameObject.FindWithTag("player2");
+        animator = enemy.GetComponent<Animator>();
+
         if (speed < 0f)
         {
             speed *= -1f;

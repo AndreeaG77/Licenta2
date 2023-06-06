@@ -16,6 +16,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Morgana
       objectReference: {fileID: 0}
+    - target: {fileID: 6191743199222484881, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191743199222484881, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191743199222484881, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6523706272690832337, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -67,6 +79,8 @@ PrefabInstance:
     - {fileID: 2217884349971135131, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
     - {fileID: 194427031275519687, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
     - {fileID: 5436970859308048106, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+    - {fileID: 1114891213249321032, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+    - {fileID: 6314810480709844112, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -80,6 +94,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5211031267163798720}
   m_SourcePrefab: {fileID: 100100000, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+--- !u!82 &3406179251672301564 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -8922624577706409966, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
+  m_PrefabInstance: {fileID: 3128125716161921006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8838975234327553669 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5891566923271493995, guid: 4a83535df8c77e549bff81c90a78cbfe, type: 3}
@@ -97,7 +116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9453287c0cabf8b44a4fbfb6320aeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 1
+  isChasing: 0
+  shouldAttack: 0
   randomAttack: 0
+  source: {fileID: 3406179251672301564}
+  clip: {fileID: 8300000, guid: 494a619d34d98dd43b31f80d71f0e89c, type: 3}
 --- !u!114 &-8146183633519666502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +149,5 @@ MonoBehaviour:
   punchDamage: 10
   kickDamage: 20
   comboDamage: 30
+  source: {fileID: 3406179251672301564}
+  clip: {fileID: 8300000, guid: c6030e0f3f1f33d41a9dddc1bef5321d, type: 3}

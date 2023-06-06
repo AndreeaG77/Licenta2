@@ -38,9 +38,15 @@ public class LoadCharacters : MonoBehaviour
             ShootRifle2 rifleS = clone1.GetComponent<ShootRifle2>();
             rifleS.enabled = false;
         }
-       // else
-       // {
-            player1Movement playerscript1 = clone1.GetComponent<player1Movement>();
+
+        if (selectedCharacter1 == 1)
+        {
+            SwordSound2 swordS = clone1.GetComponent<SwordSound2>();
+            swordS.enabled = false;
+        }
+        // else
+        // {
+        player1Movement playerscript1 = clone1.GetComponent<player1Movement>();
             playerscript1.enabled = false;
 
             damage2 damageS2 = clone1.GetComponent<damage2>();
@@ -71,9 +77,15 @@ public class LoadCharacters : MonoBehaviour
             ShootRifle rifleS = clone2.GetComponent<ShootRifle>();
             rifleS.enabled = false;
         }
-       // else
-       // {
-            player3 playerscript2 = clone2.GetComponent<player3>();
+
+        if (selectedCharacter2 == 1)
+        {
+            SwordSound1 swordS = clone2.GetComponent<SwordSound1>();
+            swordS.enabled = false;
+        }
+        // else
+        // {
+        player3 playerscript2 = clone2.GetComponent<player3>();
             playerscript2.enabled = false;
 
             damage damageS1 = clone2.GetComponent<damage>();

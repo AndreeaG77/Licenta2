@@ -14,9 +14,9 @@ public class CPUCollisionHandler : MonoBehaviour
 
     private void Start()
     {
+        character = GameObject.FindWithTag("player1");
         characterA = GameObject.FindWithTag("player2");
         damageA = characterA.GetComponent<CPUDamage>();
-        character = GameObject.FindWithTag("player1");
         animatorA = characterA.GetComponent<Animator>();
     }
     private void Update()
@@ -30,10 +30,10 @@ public class CPUCollisionHandler : MonoBehaviour
         {
             if (character.name == "Sorceron(Clone)")
             {
-                if (damageA != null)
-                {
-                    StartCoroutine(spellDamage(damageA));
-                }
+                characterA = GameObject.FindWithTag("player2");
+                damageA = characterA.GetComponent<CPUDamage>();
+                animatorA = characterA.GetComponent<Animator>();
+                StartCoroutine(spellDamage(damageA));
             }
         }
     }
@@ -49,10 +49,10 @@ public class CPUCollisionHandler : MonoBehaviour
 
         if (collision.gameObject.CompareTag("bullet"))
         {
-            if (damageA != null)
-            {
-                damageA.Punch();
-            }
+            characterA = GameObject.FindWithTag("player2");
+            damageA = characterA.GetComponent<CPUDamage>();
+            animatorA = characterA.GetComponent<Animator>();
+            damageA.Punch();
 
         }
 
@@ -65,6 +65,9 @@ public class CPUCollisionHandler : MonoBehaviour
         {
             GameObject characterB = collision.gameObject;
             Animator animatorB = characterB.GetComponent<Animator>();
+            characterA = GameObject.FindWithTag("player2");
+            damageA = characterA.GetComponent<CPUDamage>();
+            animatorA = characterA.GetComponent<Animator>();
 
             if (animatorA != null && animatorB != null)
             {
@@ -73,26 +76,19 @@ public class CPUCollisionHandler : MonoBehaviour
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("punch"))
                 {
-                    if (damageA != null)
-                    {
-                        damageA.Punch();
-                    }
+                    damageA.Punch();
+
                 }
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("kick"))
                 {
-                    if (damageA != null)
-                    {
-                        damageA.Kick();
-                    }
+                    damageA.Kick();
+
                 }
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("combo"))
                 {
-                    if (damageA != null)
-                    {
-                        damageA.Combo();
-                    }
+                    damageA.Combo();
                 }
 
             }
@@ -113,6 +109,9 @@ public class CPUCollisionHandler : MonoBehaviour
         {
             GameObject characterB = collision.gameObject;
             Animator animatorB = characterB.GetComponent<Animator>();
+            characterA = GameObject.FindWithTag("player2");
+            damageA = characterA.GetComponent<CPUDamage>();
+            animatorA = characterA.GetComponent<Animator>();
 
             if (animatorA != null && animatorB != null)
             {
@@ -121,26 +120,17 @@ public class CPUCollisionHandler : MonoBehaviour
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("punch"))
                 {
-                    if (damageA != null)
-                    {
-                        damageA.Punch();
-                    }
+                    damageA.Punch();
                 }
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("kick"))
                 {
-                    if (damageA != null)
-                    {
-                        damageA.Kick();
-                    }
+                    damageA.Kick();
                 }
 
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("combo"))
                 {
-                    if (damageA != null)
-                    {
-                        damageA.Combo();
-                    }
+                    damageA.Combo();
                 }
 
             }

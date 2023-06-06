@@ -16,9 +16,11 @@ public class CPULoadCharacters : MonoBehaviour
     public Transform spawnPointS2;
     public TextMeshProUGUI name1;
     public TextMeshProUGUI name2;
+    //private int roundNumber;
 
     void Start()
     {
+        //roundNumber = PlayerPrefs.GetInt("roundNumber");
         int selectedCharacter1 = PlayerPrefs.GetInt("selectedCharacter1");
         int selectedCharacterCPU = PlayerPrefs.GetInt("selectedCharacterCPU");
         GameObject prefab1 = characterPrefabs[selectedCharacter1];
@@ -44,6 +46,33 @@ public class CPULoadCharacters : MonoBehaviour
         {
             clone1.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
+
+        // disable unnecessary behaviour scripts for each round
+
+       /* if(roundNumber == 1)
+        {
+            CPUScript2 enemyScript2 = clone2.GetComponent<CPUScript2>();
+            enemyScript2.enabled = false;
+
+            CPUScript3 enemyScript3 = clone2.GetComponent<CPUScript3>();
+            enemyScript3.enabled = false;
+        }
+        if (roundNumber == 2)
+        {
+            CPUScript enemyScript = clone2.GetComponent<CPUScript>();
+            enemyScript.enabled = false;
+
+            CPUScript3 enemyScript3 = clone2.GetComponent<CPUScript3>();
+            enemyScript3.enabled = false;
+        }
+        if (roundNumber == 3)
+        {
+            CPUScript2 enemyScript2 = clone2.GetComponent<CPUScript2>();
+            enemyScript2.enabled = false;
+
+            CPUScript enemyScript = clone2.GetComponent<CPUScript>();
+            enemyScript.enabled = false;
+        }*/
 
         // instantiate spell object for character == 2
         if (selectedCharacterCPU == 2)
