@@ -27,6 +27,7 @@ public class CPUScript : MonoBehaviour
     private int roundNumber;
     public AudioSource source;
     public AudioClip clip;
+    public AudioClip clip2;
 
     private void Start()
     {
@@ -121,6 +122,8 @@ public class CPUScript : MonoBehaviour
                 }
                 else if (sorceron && randomAttack == 2)
                 {
+                    source.clip = clip2;
+                    source.PlayOneShot(source.clip);
                     StartCoroutine(AttackCoroutine());
                 }
                 else

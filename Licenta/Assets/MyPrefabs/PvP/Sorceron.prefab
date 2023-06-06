@@ -427,6 +427,8 @@ MonoBehaviour:
   speed: 3
   jumpSize: 4
   scale: 3
+  source: {fileID: 8771729950704716597}
+  clip: {fileID: 8300000, guid: 8986864e0ff6abd40adcc0432072086a, type: 3}
 --- !u!114 &3336007549456780804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +476,8 @@ MonoBehaviour:
   speed: 3
   jumpSize: 4
   scale: 3
+  source: {fileID: 8771729950704716597}
+  clip: {fileID: 8300000, guid: 8986864e0ff6abd40adcc0432072086a, type: 3}
 --- !u!114 &8286525123690845693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +545,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c6030e0f3f1f33d41a9dddc1bef5321d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.436
+  m_Volume: 0.568
   m_Pitch: 1
   Loop: 0
   Mute: 0

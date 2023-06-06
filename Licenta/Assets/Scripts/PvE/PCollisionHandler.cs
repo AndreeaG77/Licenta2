@@ -13,6 +13,7 @@ public class PCollisionHandler : MonoBehaviour
     private bool alreadyAttacked;
     private damage damageA;
     private Animator animatorA;
+    private CPUDamage damageB;
 
     private void Start()
     {
@@ -70,6 +71,7 @@ public class PCollisionHandler : MonoBehaviour
         {
             GameObject characterB = collision.gameObject;
             Animator animatorB = characterB.GetComponent<Animator>();
+            damageB = characterB.GetComponent<CPUDamage>();
             characterA = GameObject.FindWithTag("player1");
             damageA = characterA.GetComponent<damage>();
             animatorA = characterA.GetComponent<Animator>();
@@ -92,6 +94,41 @@ public class PCollisionHandler : MonoBehaviour
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("combo"))
                 {
                     damageA.Combo();
+                }
+
+                if ((stateInfoA.IsName("punch") || stateInfoA.IsName("kick") || stateInfoA.IsName("combo")) && (stateInfoB.IsName("punch") || stateInfoB.IsName("kick") || stateInfoB.IsName("combo")))
+                {
+                    int randomNumber = Random.Range(1, 3);
+                    if (randomNumber == 1)
+                    {
+                        if (stateInfoB.IsName("punch"))
+                        {
+                            damageA.Punch();
+                        }
+                        if (stateInfoB.IsName("kick"))
+                        {
+                            damageA.Kick();
+                        }
+                        if (stateInfoB.IsName("combo"))
+                        {
+                            damageA.Combo();
+                        }
+                    }
+                    else
+                    {
+                        if (stateInfoA.IsName("punch"))
+                        {
+                            damageB.Punch();
+                        }
+                        if (stateInfoA.IsName("kick"))
+                        {
+                            damageB.Kick();
+                        }
+                        if (stateInfoA.IsName("combo"))
+                        {
+                            damageB.Combo();
+                        }
+                    }
                 }
 
             }
@@ -113,6 +150,7 @@ public class PCollisionHandler : MonoBehaviour
         {
             GameObject characterB = collision.gameObject;
             Animator animatorB = characterB.GetComponent<Animator>();
+            damageB = characterB.GetComponent<CPUDamage>();
             characterA = GameObject.FindWithTag("player1");
             damageA = characterA.GetComponent<damage>();
             animatorA = characterA.GetComponent<Animator>();
@@ -136,6 +174,41 @@ public class PCollisionHandler : MonoBehaviour
                 if ((stateInfoA.IsName("idle") || stateInfoA.IsName("walk") || stateInfoA.IsName("backwalk") || stateInfoA.IsName("block")) && stateInfoB.IsName("combo"))
                 {
                     damageA.Combo();
+                }
+
+                if ((stateInfoA.IsName("punch") || stateInfoA.IsName("kick") || stateInfoA.IsName("combo")) && (stateInfoB.IsName("punch") || stateInfoB.IsName("kick") || stateInfoB.IsName("combo")))
+                {
+                    int randomNumber = Random.Range(1, 3);
+                    if (randomNumber == 1)
+                    {
+                        if (stateInfoB.IsName("punch"))
+                        {
+                            damageA.Punch();
+                        }
+                        if (stateInfoB.IsName("kick"))
+                        {
+                            damageA.Kick();
+                        }
+                        if (stateInfoB.IsName("combo"))
+                        {
+                            damageA.Combo();
+                        }
+                    }
+                    else
+                    {
+                        if (stateInfoA.IsName("punch"))
+                        {
+                            damageB.Punch();
+                        }
+                        if (stateInfoA.IsName("kick"))
+                        {
+                            damageB.Kick();
+                        }
+                        if (stateInfoA.IsName("combo"))
+                        {
+                            damageB.Combo();
+                        }
+                    }
                 }
 
             }

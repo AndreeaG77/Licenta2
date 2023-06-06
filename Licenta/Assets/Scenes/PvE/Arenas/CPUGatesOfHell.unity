@@ -7611,9 +7611,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 26fd9f1c2ecf2234ba32bcac83fbe305, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e656a8d655be291479828c51f505bbad, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.456
+  m_Volume: 0.249
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11062,8 +11062,6 @@ MonoBehaviour:
   afterGameMenu: {fileID: 634815506}
   playerUI: {fileID: 232296077}
   cpuScript: {fileID: 0}
-  cpuScript2: {fileID: 0}
-  cpuScript3: {fileID: 0}
 --- !u!1 &1850191724
 GameObject:
   m_ObjectHideFlags: 0

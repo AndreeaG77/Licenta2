@@ -123,6 +123,7 @@ MonoBehaviour:
   randomAttack: 0
   source: {fileID: 8673697741792405857}
   clip: {fileID: 8300000, guid: c6030e0f3f1f33d41a9dddc1bef5321d, type: 3}
+  clip2: {fileID: 8300000, guid: 8986864e0ff6abd40adcc0432072086a, type: 3}
 --- !u!114 &1313263206362836865
 MonoBehaviour:
   m_ObjectHideFlags: 0

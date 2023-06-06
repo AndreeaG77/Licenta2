@@ -10,6 +10,7 @@ public class collisionHandler : MonoBehaviour
     private GameObject characterA;
     private damage damageA;
     private Animator animatorA;
+    private damage2 damageB;
 
     private void Start()
     {
@@ -63,6 +64,7 @@ public class collisionHandler : MonoBehaviour
 
             GameObject characterB = collision.gameObject;
             Animator animatorB = characterB.GetComponent<Animator>();
+            damageB = characterB.GetComponent<damage2>();
             characterA = GameObject.FindWithTag("player1");
             damageA = characterA.GetComponent<damage>();
             animatorA = characterA.GetComponent<Animator>();
@@ -86,7 +88,43 @@ public class collisionHandler : MonoBehaviour
                 {
                     damageA.Combo();
                 }
-                
+
+
+                if ((stateInfoA.IsName("punch") || stateInfoA.IsName("kick") || stateInfoA.IsName("combo")) && (stateInfoB.IsName("punch") || stateInfoB.IsName("kick") || stateInfoB.IsName("combo")))
+                {
+                    int randomNumber = Random.Range(1, 3);
+                    if (randomNumber == 1)
+                    {
+                        if (stateInfoB.IsName("punch"))
+                        {
+                            damageA.Punch();
+                        }
+                        if (stateInfoB.IsName("kick"))
+                        {
+                            damageA.Kick();
+                        }
+                        if (stateInfoB.IsName("combo"))
+                        {
+                            damageA.Combo();
+                        }
+                    }
+                    else
+                    {
+                        if (stateInfoA.IsName("punch"))
+                        {
+                            damageB.Punch();
+                        }
+                        if (stateInfoA.IsName("kick"))
+                        {
+                            damageB.Kick();
+                        }
+                        if (stateInfoA.IsName("combo"))
+                        {
+                            damageB.Combo();
+                        }
+                    }
+                }
+
             }
             
         }
@@ -104,6 +142,7 @@ public class collisionHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("player2")){
             GameObject characterB = collision.gameObject;
             Animator animatorB = characterB.GetComponent<Animator>();
+            damageB = characterB.GetComponent<damage2>();
             characterA = GameObject.FindWithTag("player1");
             damageA = characterA.GetComponent<damage>();
             animatorA = characterA.GetComponent<Animator>();
@@ -127,7 +166,42 @@ public class collisionHandler : MonoBehaviour
                 {
                     damageA.Combo();
                 }
-                
+
+                if ((stateInfoA.IsName("punch") || stateInfoA.IsName("kick") || stateInfoA.IsName("combo")) && (stateInfoB.IsName("punch") || stateInfoB.IsName("kick") || stateInfoB.IsName("combo")))
+                {
+                    int randomNumber = Random.Range(1, 3);
+                    if (randomNumber == 1)
+                    {
+                        if (stateInfoB.IsName("punch"))
+                        {
+                            damageA.Punch();
+                        }
+                        if (stateInfoB.IsName("kick"))
+                        {
+                            damageA.Kick();
+                        }
+                        if (stateInfoB.IsName("combo"))
+                        {
+                            damageA.Combo();
+                        }
+                    }
+                    else
+                    {
+                        if (stateInfoA.IsName("punch"))
+                        {
+                            damageB.Punch();
+                        }
+                        if (stateInfoA.IsName("kick"))
+                        {
+                            damageB.Kick();
+                        }
+                        if (stateInfoA.IsName("combo"))
+                        {
+                            damageB.Combo();
+                        }
+                    }
+                }
+
             }
             
         }

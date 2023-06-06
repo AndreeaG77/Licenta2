@@ -47,6 +47,7 @@ public class CPUCollisionHandler : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
+
         if (collision.gameObject.CompareTag("bullet"))
         {
             characterA = GameObject.FindWithTag("player2");

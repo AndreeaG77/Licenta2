@@ -8,8 +8,12 @@ public class player1Movement : MonoBehaviour
     [SerializeField] private float jumpSize;
     [SerializeField] private float scale;
 
+    public AudioSource source;
+    public AudioClip clip;
+
     private Rigidbody body;
     private Animator animator;
+    private GameObject player;
     public bool isGrounded { get; set; }
     public bool spell { get; set; }
     public bool isMoving {get; set; }
@@ -18,6 +22,7 @@ public class player1Movement : MonoBehaviour
     {
         body = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        player = GameObject.FindWithTag("player2");
         isGrounded=true;
     }
 
@@ -85,6 +90,12 @@ public class player1Movement : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.O) && Input.GetKeyDown(KeyCode.L)){
+            player = GameObject.FindWithTag("player2");
+            if (player.name == "Sorceron(Clone)")
+            {
+                source.clip = clip;
+                source.PlayOneShot(source.clip);
+            }           
             animator.SetBool("combo1", true);
         }
         else{
