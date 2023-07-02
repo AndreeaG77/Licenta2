@@ -7,17 +7,12 @@ public class CPUSpell : MonoBehaviour
     [SerializeField] private MeshRenderer meshRenderer;
     private CPUScript enemyScript;
     private GameObject enemy;
-    private CPUScript2 enemyScript2;
-    private CPUScript3 enemyScript3;
 
     private void Awake()
     {
         enemy = GameObject.FindWithTag("player2");
         enemyScript = enemy.GetComponent<CPUScript>();
 
-        enemyScript2 = enemy.GetComponent<CPUScript2>();
-
-        enemyScript3 = enemy.GetComponent<CPUScript3>();
     }
 
     void Update()
@@ -25,20 +20,6 @@ public class CPUSpell : MonoBehaviour
         if (enemyScript != null && enemyScript.enabled)
         {
             if(enemyScript.randomAttack == 2)
-            {
-                StartCoroutine(EnableSpell());
-            }
-        }
-        if (enemyScript2 != null && enemyScript2.enabled)
-        {
-            if (enemyScript2.randomAttack == 2)
-            {
-                StartCoroutine(EnableSpell());
-            }
-        }
-        if (enemyScript3 != null && enemyScript3.enabled)
-        {
-            if (enemyScript3.randomAttack == 2)
             {
                 StartCoroutine(EnableSpell());
             }

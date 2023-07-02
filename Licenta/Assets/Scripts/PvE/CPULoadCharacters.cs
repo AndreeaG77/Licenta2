@@ -47,33 +47,6 @@ public class CPULoadCharacters : MonoBehaviour
             clone1.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
 
-        // disable unnecessary behaviour scripts for each round
-
-       /* if(roundNumber == 1)
-        {
-            CPUScript2 enemyScript2 = clone2.GetComponent<CPUScript2>();
-            enemyScript2.enabled = false;
-
-            CPUScript3 enemyScript3 = clone2.GetComponent<CPUScript3>();
-            enemyScript3.enabled = false;
-        }
-        if (roundNumber == 2)
-        {
-            CPUScript enemyScript = clone2.GetComponent<CPUScript>();
-            enemyScript.enabled = false;
-
-            CPUScript3 enemyScript3 = clone2.GetComponent<CPUScript3>();
-            enemyScript3.enabled = false;
-        }
-        if (roundNumber == 3)
-        {
-            CPUScript2 enemyScript2 = clone2.GetComponent<CPUScript2>();
-            enemyScript2.enabled = false;
-
-            CPUScript enemyScript = clone2.GetComponent<CPUScript>();
-            enemyScript.enabled = false;
-        }*/
-
         // instantiate spell object for character == 2
         if (selectedCharacterCPU == 2)
         {

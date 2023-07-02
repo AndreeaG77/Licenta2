@@ -116,7 +116,6 @@ public class ScoreManagement : MonoBehaviour
     IEnumerator calculateScore2()
     {
         isCalculatingScore2 = true;
-        Debug.Log("ooo");
         animatorp2.SetTrigger("death");
         score1 += 1;
         if (score1 == 1)

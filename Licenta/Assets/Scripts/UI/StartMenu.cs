@@ -123,7 +123,6 @@ public class StartMenu : MonoBehaviour
 
     public void quitGame()
     {
-        //Debug.Log("Quit");
         Application.Quit();
     }
 
